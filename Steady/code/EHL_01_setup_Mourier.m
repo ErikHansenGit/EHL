@@ -92,7 +92,7 @@ alg.max_num_com_threads = 8;            % [-]   maximum number of computational 
 output_path     = sprintf('%s','./../data/EHL_02_mainprocess/Input');
 mkdir (output_path)
 % Output path of solver results(->Output path of EHL_02_mainprocess.m):
-inf.output_path_mainprocess     = sprintf('%s','./../data/Rosenkranz/EHL_02_mainprocess/Output');
+inf.output_path_mainprocess     = sprintf('%s','./../data/Mourier/EHL_02_mainprocess/Output');
 % Save output:
 save(fullfile(output_path,'/alg.mat'),'alg');
 save(fullfile(output_path,'/fld.mat'),'fld');
