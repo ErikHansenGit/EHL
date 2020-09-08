@@ -1,6 +1,8 @@
 # EHL
 MATLAB solver for Elastohydrodynamic Lubrication (EHL) problems. The solver is based on a Finite Volume (FV) discretization of the Reynolds equation incorporating mass-conserving cavitation through the cavity fraction and elastic deformation through the application of the Boundary Element Method (BEM) to an elastic half-space. Shear thinning, Roelands and Dowson-Higginson relations are also embedded in the code. Furthermore, the load-balance equation is considered.
 
+The code is split up into a steady and and unsteady solver. While the steady solver is already finished, the unsteady solver is still under construction.
+
 The code consists out of three scripts which must be executed consecutively:
 
 The scripts denoted with EHL_01_setup will set up the input information for the EHL solver.
@@ -22,4 +24,4 @@ Rosenkranz, A., Szurdak, A., Gachot, C., Hirt, G., & Muecklich, F. (2016). Frict
 
 This code is free to use by anyone. Still, citing this repository is greatly appreciated if it is of use to your work.
 
-Erik Hansen, 07.09.2020
+Erik Hansen
