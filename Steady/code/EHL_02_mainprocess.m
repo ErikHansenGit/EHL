@@ -841,7 +841,7 @@ function [h_el] = compute_h_el(p,Nx1,Nx2,fft2_Kernel)
 p_ext               = zeros(2*Nx1,2*Nx2);
 p_ext(1:Nx1,1:Nx2)  = p(:,:);
 % Compute convolution in Fourier space for better pefromance:
-h_el_ext            = ifft2(fft2_Kernel.*fft2(p_ext));
+h_el_ext            = real(ifft2(fft2_Kernel.*fft2(p_ext)));
 % Extract linear convolution:
 h_el                = h_el_ext(1:Nx1,1:Nx2);
 end
