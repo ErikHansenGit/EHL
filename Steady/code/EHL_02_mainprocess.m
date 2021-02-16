@@ -723,8 +723,10 @@ end
 function [p_con,g,err] = elpl_contact_pressure_akchurin_linear(p_min,H,p_con_ini,z,h_s,Nx1,Nx2,fft2_Kernel,err_tol,it_max,h_ref)
 % Erik Hansen, 26.08.2020
 % Calculates the contact pressure occuring when a rigid smooth surface is
-% loaded against an elastic half-space with ideal elastic-plastic material
-% behaviour. The code is very similar to and consists largely of the 
+% loaded against an elastic half-space. The minimum and maximum contact pressures can be set to limiting values. Subsurface plastic flow within the half-space is not modelled.
+% It is assumed that plastic flow only occures on the the half-space's surface if the maximum contact pressure is reached.
+% The profile deformation is computed with the elastic half-space model using the Boundary Element Method (BEM).
+% The code is very similar to and consists largely of the 
 % algorithm described Akchurin et al., 2015:
 % "On a model for the prediction of the friction coefficient in mixed lubrication based on a load-sharing concept with measured surface roughness"
 % However, some changes were introduced in the treatment of non-contact and
