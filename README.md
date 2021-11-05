@@ -17,10 +17,10 @@ Optional: the script denoted with EHL_04_animation creates videos of unsteady si
 
 Furthermore, there are two simulation studies:
 
-The codes denoted with Study A replicates the unsteady setup of:
+The codes denoted with Study A replicate the unsteady setup of:
 Mourier, L., Mazuyer, D., Lubrecht, A. A., & Donnet, C. (2006). Transient increase of film thickness in micro-textured EHL contacts. Tribology International, 39(12), 1745-1756.
 
-The codes denoted with Study_C4 replicates the steady setup of:
+The codes denoted with Study_C4 replicate the steady setup of:
 Woloszynski, T.; Podsiadlo, P. & Stachowiak, G. W. Efficient Solution to the Cavitation Problem in Hydrodynamic Lubrication Tribology Letters, 2015, 58.
 
 
