@@ -1515,17 +1515,27 @@ Nx2_K = 2*Nx2;      % [-]       Number of discretized Kernel points in x2-direct
 dx1_mod = dx1/2;
 dx2_mod = dx2/2;
 % Determine distances:
-i           = 1:Nx1_K;
-j           = 1:Nx2_K;
-i_cond      = (i <= floor(Nx1_K/2));
-x1          = -(((floor(Nx1_K/2) + 1) - (i - (ceil(Nx1_K/2) + 1))) - 1)*dx1;
-x1(i_cond)  = (i(i_cond) - 1)*dx1;
-j_cond      = (j <= floor(Nx2_K/2));
-x2          = -(((floor(Nx2_K/2) + 1) - (j - (ceil(Nx2_K/2) + 1))) - 1)*dx2;
-x2(j_cond)  = (j(j_cond) - 1)*dx2;
-clear i; clear j; clear i_cond; clear j_cond;
-clear Nx1; clear Nx2; clear dx1; clear dx2;
-[x1, x2]    = ndgrid(x1,x2); % Convert vectors to matrizes
+% Code is written such that Nx1_K and Nx2_K can be odd or even:
+% Indizes in x1-direction:
+i_pos_end = floor(Nx1_K/2) + 1;
+i_pos_sym = ceil(Nx1_K/2);
+i_neg_sym = floor(Nx1_K/2) + 2;
+i_pos     = 1:i_pos_end;
+% Distances in x1-direction:
+x1                  = zeros(1,Nx1_K);
+x1(1:i_pos_end)     = dx1*(i_pos - 1);
+x1(i_neg_sym:Nx1_K) = -flip(x1(2:i_pos_sym));
+% Indizes in x2-direction:
+j_pos_end = floor(Nx2_K/2) + 1;
+j_pos_sym = ceil(Nx2_K/2);
+j_neg_sym = floor(Nx2_K/2) + 2;
+j_pos     = 1:j_pos_end;
+% Distances in x2-direction:
+x2                  = zeros(1,Nx2_K);
+x2(1:j_pos_end)     = dx2*(j_pos - 1);
+x2(j_neg_sym:Nx2_K) = -flip(x2(2:j_pos_sym));
+% Convert vectors to matrizes:
+[x1, x2] = ndgrid(x1,x2); 
 % Construct Kernel:
 term_1 = (x1 + dx1_mod).*log(ext_sqrt(x2 + dx2_mod, x1 + dx1_mod)./ext_sqrt(x2 - dx2_mod, x1 + dx1_mod));
 term_2 = (x2 + dx2_mod).*log(ext_sqrt(x1 + dx1_mod, x2 + dx2_mod)./ext_sqrt(x1 - dx1_mod, x2 + dx2_mod));
