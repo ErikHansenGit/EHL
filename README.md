@@ -17,14 +17,21 @@ Optional: the script denoted with EHL_04_animation creates videos of unsteady si
 
 Furthermore, there are two simulation studies:
 
-The codes denoted with Study A replicate the unsteady setup of:
+The codes denoted with Study_A replicate the unsteady setup of:
 Mourier, L., Mazuyer, D., Lubrecht, A. A., & Donnet, C. (2006). Transient increase of film thickness in micro-textured EHL contacts. Tribology International, 39(12), 1745-1756.
 
 The codes denoted with Study_C4 replicate the steady setup of:
 Woloszynski, T.; Podsiadlo, P. & Stachowiak, G. W. Efficient Solution to the Cavitation Problem in Hydrodynamic Lubrication Tribology Letters, 2015, 58.
 
 
-This code is free to use by anyone. Still, citing this repository is greatly appreciated if it is of use to your work.
+This code is free to use by anyone. Still, citing this repository or the research below is greatly appreciated if it is of use to your work.
+
+Furthermore, the code documentation and research associated with Study_A and Study_C4 is submitted within the article "An EHL Extension of the Unsteady FBNS Algorithm" to Tribology Letters and is currently under review. The preprint can be found at Research Square:
+Website:                    https://www.researchsquare.com/article/rs-1064824/v1
+DOI:                        https://doi.org/10.21203/rs.3.rs-1064824/v1
+Authors:                    Erik Hansen, Altay Kaçan, Bettina Frohnapfel, Andrea Codrignani
+Submission date:            09 Nov, 2021
+Posted on Research Square:  20 Dec, 2021
 
 
-05.11.2021, Erik Hansen
+22.12.2021, Erik Hansen
