@@ -27,10 +27,15 @@ Woloszynski, T.; Podsiadlo, P. & Stachowiak, G. W. Efficient Solution to the Cav
 This code is free to use by anyone. Still, citing this repository or the research below is greatly appreciated if it is of use to your work.
 
 Furthermore, the code documentation and research associated with Study_A and Study_C4 is submitted within the article "An EHL Extension of the Unsteady FBNS Algorithm" to Tribology Letters and is currently under review. The preprint can be found at Research Square:
+
 Website:                    https://www.researchsquare.com/article/rs-1064824/v1
+
 DOI:                        https://doi.org/10.21203/rs.3.rs-1064824/v1
+
 Authors:                    Erik Hansen, Altay Kaçan, Bettina Frohnapfel, Andrea Codrignani
+
 Submission date:            09 Nov, 2021
+
 Posted on Research Square:  20 Dec, 2021
 
 
