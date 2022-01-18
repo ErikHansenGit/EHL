@@ -1760,6 +1760,6 @@ dp_hd_dx1(i,j)          = (sol.p_hd(i+1,j)      - sol.p_hd(i-1,j)    )/(2*h.dx1)
 dp_hd_dx1(1,j)          = (sol.p_hd(2,j)        - sol.p_hd(1,j)      )/h.dx1;
 dp_hd_dx1(h.Nx1,j)      = (sol.p_hd(h.Nx1,j)    - sol.p_hd(h.Nx1-1,j))/h.dx1;
 % Assuming mu does not depend on the cavity fraction: mu = mu_l:
-tau_hd_up               = ( 1/2*h.h_m.*dp_hd_dx1 + prop.mu_l.*prop.u_r./h.h_m);     % [Pa]  hydrodynamic shear stress \tau_{31} at the upper surface 
-tau_hd_low              = (-1/2*h.h_m.*dp_hd_dx1 + prop.mu_l.*prop.u_r./h.h_m);     % [Pa]  hydrodynamic shear stress \tau_{31} at the lower surface 
+tau_hd_up               = ( 1/2*h.h_m.*dp_hd_dx1 + prop.mu_l.*(1 - sol.thet).*prop.u_r./h.h_m);     % [Pa]  hydrodynamic shear stress \tau_{31} at the upper surface 
+tau_hd_low              = (-1/2*h.h_m.*dp_hd_dx1 + prop.mu_l.*(1 - sol.thet).*prop.u_r./h.h_m);     % [Pa]  hydrodynamic shear stress \tau_{31} at the lower surface 
 end
