@@ -554,28 +554,26 @@ while alg.it_tot == 0 || (      (       res.FBNS.FBNS(alg.it_tot,1)  > alg.FBNS.
     % if desired:
     if (opc.flag_imposed == 2) && (alg.it_tot < alg.it_tot_max)
         if (res.FBNS.FBNS(alg.it_tot,1) > alg.FBNS.toll) || (abs(res.load.F_N( alg.it_tot,1)) > alg.load.toll)
-            % Determine PID-Controller values:
+                       
+            % Determine incremental PID-Controller values:
             PID.e_k =  res.load.F_N(alg.it_tot,1);
-            
-            if  PID.flag_ini
-                PID.e_sum = PID.e_prev + PID.e_sum;
-                PID.e_dif = PID.e_k - PID.e_prev;
-                
-            else
-                PID.e_sum = 0;
-                PID.e_dif = 0;   
-                PID.flag_ini = true;
+                       
+            if ~PID.flag_ini
+                PID.e_km1 = 0;
+                PID.e_km2 = 0;
             end
                 
             % Apply PID controller to adjust non-dimensional rigid body displacement:
-            h_nd.h_d_ma(alg.it_tot+1) = alg.load.K_P*PID.e_k;
-            h_nd.h_d_ma(alg.it_tot+1) = alg.load.K_I*PID.e_sum + h_nd.h_d_ma(alg.it_tot+1);
-            h_nd.h_d_ma(alg.it_tot+1) = alg.load.K_D*PID.e_dif + h_nd.h_d_ma(alg.it_tot+1);
+            h_nd.h_d_ma(alg.it_tot+1) = alg.load.K_P*(PID.e_k - PID.e_km1) + h_nd.h_d_ma(alg.it_tot);
+            h_nd.h_d_ma(alg.it_tot+1) = alg.load.K_I*PID.e_k + h_nd.h_d_ma(alg.it_tot+1);
+            h_nd.h_d_ma(alg.it_tot+1) = alg.load.K_D*(PID.e_k - 2 * PID.e_km1 + PID.e_km2) + h_nd.h_d_ma(alg.it_tot+1);
             % Compute dimensional rigid body displacement:
             h.h_d_ma(alg.it_tot+1)  = h_nd.h_d_ma(alg.it_tot+1)*ref.h;
             
-            % save information for next iteration:
-            PID.e_prev = PID.e_k;
+            % Save information for next iteration:
+            PID.e_km2 = PID.e_km1;
+            PID.e_km1 = PID.e_k;
+            PID.flag_ini = true;
         end       
     end
     
