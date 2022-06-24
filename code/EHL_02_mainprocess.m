@@ -451,7 +451,7 @@ if alg.time.it == 1
     F_old   = ones(h_nd.N,1);               % [-]  previous residual of Fischer-Burmeister equation
 else
     G_old   = prev.G;
-    F_old   = prev.G;
+    F_old   = prev.F;
 end
 while alg.it_tot == 0 || (      (       res.FBNS.FBNS(alg.it_tot,1)  > alg.FBNS.toll  ...
                                  || abs(res.load.F_N( alg.it_tot,1)) > alg.load.toll) ...
