@@ -228,6 +228,20 @@ for it_OC= 1:opc.N                                                      % [-]   
     if alg.flag_unsteady
         alg.time.delta_t = opc.delta_t(it_OC);                          % [s]  time step size
     end
+    
+    if it_OC > 1
+        if opc.flag_imposed == 1
+            h.h_d_ma = opc.h_d*ones(alg.it_tot_max,1);
+        elseif opc.flag_imposed == 2
+            h.h_d_ma = zeros(alg.it_tot_max,1);
+            h.h_d_ma(1) = alg.load.h_d_ma_ini;    
+        end
+
+        h.h_el_hd_ma    = zeros(h.Nx1,h.Nx2);
+        h.h_ma          = zeros(h.Nx1,h.Nx2);
+        h.h_m           = zeros(h.Nx1,h.Nx2);
+    end
+    
     % Time iteration wrapper
     for it_time = 1:alg.time.N                                          % [-]       time iteration counter
 
