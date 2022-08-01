@@ -108,7 +108,7 @@ for it_sim =1:sim_N
         
         % Time step wrapper:
         for it_time = 1:loaded_data(it_sim).opc.N_t(it_OC)
-            loaded_data(it_sim).loaded_OC(it_OC).loaded_Time(it_time).paths.input_time_path = fullfile(loaded_data(it_sim).loaded_OC(it_OC).paths.input_OC_path,char(compose('Time_%i/',i_time)));
+            loaded_data(it_sim).loaded_OC(it_OC).loaded_Time(it_time).paths.input_time_path = fullfile(loaded_data(it_sim).loaded_OC(it_OC).paths.input_OC_path,char(compose('Time_%i/',it_time)));
             % Load result data:
             load(fullfile(loaded_data(it_sim).loaded_OC(it_OC).loaded_Time(it_time).paths.input_time_path,'alg.mat'));
             load(fullfile(loaded_data(it_sim).loaded_OC(it_OC).loaded_Time(it_time).paths.input_time_path,'h.mat'));        
