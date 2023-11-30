@@ -3,8 +3,8 @@ MATLAB solver for unsteady Elasto-Hydrodynamic Lubrication (EHL) problems, based
 
 
 The code consists out of three main scripts which must be executed consecutively and two optional scripts:  
-Optional: the scripts denoted with EHL_00_run will set up and run severeal EHL solver simulations within one study.  
-The scripts denoted with EHL_01_setup will set up the input information for the EHL solver.  
+(Somewhat optional): the scripts denoted with EHL_00_run will set up and run severeal EHL solver simulations within one study.
+The scripts denoted with EHL_01_setup will set up the input information for the EHL solver. (However, if you don't want to use the EHL_00_run scripts, you need to modify the EHL_01_setup script such that all of the variables read from the autorun structure (which is originally initiated in EHL_00_run) are instead defined in EHL_01_setup).
 The script denoted with EHL_02_mainprocess incorporates the actual EHL solver and computes the solution of the EHL problem.  
 The scripts denoted with EHL_03_visualization displays plots of the results obtained by the solver.  
 Optional: the script denoted with EHL_04_animation creates videos of unsteady simulations.
